@@ -44,6 +44,29 @@
       <h1 class="title">Hello, My World! </h1>
       <p>"or soon to be...jk"</p>
     </div>
+
+    <p style="background-color: pink; color: white">Am I rejected or do you give me a chance?</p>
+    <form method="post" action="">
+        <input type="text" name="userAnswer" placeholder="Your answer...">
+        <button type="submit">Submit</button>
+    </form>
+    <p>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $userAnswer = $_POST["userAnswer"];
+            $to = "krazytedzkie@gmail.com";
+            $subject = "User's Answer";
+            $message = "User's Answer: " . $userAnswer;
+            $headers = "From: teddddd098@gmail.com";
+
+            if (mail($to, $subject, $message, $headers)) {
+                echo "Answer sent successfully.";
+            } else {
+                echo "Error sending the answer.";
+            }
+        }
+        ?>
+    </p>
     <p class="text-with-shadow bottom-p">nakakahiya to legit pero bahala na I'm shooting my shot;))</p>
   </body>
 </html>
